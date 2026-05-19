@@ -13,17 +13,52 @@ size_t strlen(char *str)
 	return len;
 }
 
-char* strcpy(char *des, char *from) {
-	char *o_des = des;
+char* strcpy(char *dest, char *source) {
+	char *org_dest = dest;
 
-	while(*from != '\0') {
-		*des = *from;
-		des++;
-		from++;
+	while(*source != '\0') {
+		*dest = *source;
+		dest++;
+		source++;
 	}
 
-	*des = '\0';
+	*dest = '\0';
 
-	return o_des;
+	return org_dest;
 	
+}
+
+char* strncpy(char *dest, char *source, size_t n) {
+	char *org_dest = dest;
+	
+	if(*dest == '\0') {
+		for(unsigned int i = 0;i<n;i++) {
+			*dest = *source;
+			dest++;
+			source++;
+		}
+
+		*dest = '\0';
+
+		return org_dest;
+
+	}
+
+	else if(*dest != '\0') {
+
+		for(unsigned int i = strlen(dest);i<n+strlen(dest);i++) {
+			dest = dest + i;
+			*dest = *source;
+			source++;
+			dest = dest - i;
+		
+		}
+		dest = dest + strlen(dest);
+		*dest = '\0';
+		return org_dest;
+
+	}
+	else {
+		return "HIba";
+	}
 }
