@@ -2,8 +2,8 @@
 #define STRLIB_H
 #include<stddef.h>
 
-size_t strlen(char *str);
-char* strcpy(char *dest, char *source);
-char* strncpy(char *dest, char *source, size_t n);
+size_t strlen(const char *str);
+char* strcpy(char *dest, const char *source);
+char* strncpy(char *dest, const char *source, size_t n);
 
 #endif

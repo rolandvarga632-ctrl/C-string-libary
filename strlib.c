@@ -1,7 +1,7 @@
 #include<stddef.h>
 #include"strlib.h"
 
-size_t strlen(char *str)
+size_t strlen(const char *str)
 {
 	size_t len = 0;
 	while(*str != '\0')
@@ -13,7 +13,7 @@ size_t strlen(char *str)
 	return len;
 }
 
-char* strcpy(char *dest, char *source) {
+char* strcpy(char *dest,const char *source) {
 	char *org_dest = dest;
 
 	while(*source != '\0') {
@@ -28,37 +28,17 @@ char* strcpy(char *dest, char *source) {
 	
 }
 
-char* strncpy(char *dest, char *source, size_t n) {
+char* strncpy(char *dest,const char *source, size_t n) {
 	char *org_dest = dest;
 	
-	if(*dest == '\0') {
-		for(unsigned int i = 0;i<n;i++) {
-			*dest = *source;
-			dest++;
-			source++;
-		}
-
-		*dest = '\0';
-
-		return org_dest;
-
+	size_t i;
+	for(i = 0;i<n && source[i] != '\0';i++) {
+		dest[i] = source[i];
 	}
 
-	else if(*dest != '\0') {
-
-		for(unsigned int i = strlen(dest);i<n+strlen(dest);i++) {
-			dest = dest + i;
-			*dest = *source;
-			source++;
-			dest = dest - i;
-		
-		}
-		dest = dest + strlen(dest);
-		*dest = '\0';
-		return org_dest;
-
+	for(;i<n;i++) {
+		dest[i] = '\0';
 	}
-	else {
-		return "HIba";
-	}
+
+	return org_dest;
 }
