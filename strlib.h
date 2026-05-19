@@ -5,5 +5,6 @@
 
 
 size_t strlen(char *str);
+char* strcpy(char *des, char *from);
 
 #endif
