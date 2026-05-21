@@ -42,3 +42,36 @@ char* strncpy(char *dest,const char *source, size_t n) {
 
 	return org_dest;
 }
+
+char* strcat(char *dest, const char *source) {
+	char *org_dest = dest;
+
+	size_t i = strlen(dest);
+	while(*source != '\0') {
+		dest[i] = *source;
+ 		source++;
+		i++;
+	}
+	dest[i] = '\0';
+
+
+	return org_dest;
+}	
+
+int strcmp(const char *dest, const char *source) {
+	
+	size_t i = 0;
+	while(dest[i] != '\0' && source[i] != '\0') {
+		int a = (int)dest[i];
+		int b = (int)source[i];
+		int value = a-b;
+		
+		if(value != 0) {
+			return value;
+		}
+
+		i++;
+	}
+	return (int)dest[i] - (int)source[i];	
+	
+}

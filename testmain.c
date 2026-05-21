@@ -23,12 +23,20 @@ int main(){
 	array[n] = '\0';
 	printf("%s\n",array);
 
-	strncpy(array2,dest,n);		
-	array2[n] = '\0';
+	//strncpy(array2,dest,n);		
+	//array2[n] = '\0';
+	//printf("%s\n",array2);
 
-	printf("%s\n",array2);
+	// test strcat() function
+	strcat(array2,str);
+	printf("%s\n\n",array2);
+	char tomb[10] = "a";
+	char tomb2[10] = "ab";
 
+	printf("%d\n",strcmp(tomb,tomb2));
+	// free memory
 	free(dest);
+
 
 	return 0;
 }
