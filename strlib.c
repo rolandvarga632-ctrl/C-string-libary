@@ -58,12 +58,12 @@ char* strcat(char *dest, const char *source) {
 	return org_dest;
 }	
 
-int strcmp(const char *dest, const char *source) {
+int strcmp(const char *str1, const char *str2) {
 	
 	size_t i = 0;
-	while(dest[i] != '\0' && source[i] != '\0') {
-		int a = (int)dest[i];
-		int b = (int)source[i];
+	while(str1[i] != '\0' && str2[i] != '\0') {
+		int a = (int)str1[i];
+		int b = (int)str2[i];
 		int value = a-b;
 		
 		if(value != 0) {
@@ -72,6 +72,22 @@ int strcmp(const char *dest, const char *source) {
 
 		i++;
 	}
-	return (int)dest[i] - (int)source[i];	
+	return (int)str1[i] - (int)str2[i];	
 	
+}
+
+int strncmp(const char *str1, const char *str2, size_t n) {
+	size_t i = 0;
+	while(i<n && (str1[i] != '\0' && str2[i] != '\0')) {
+		int a = (int)str1[i];
+		int b = (int)str2[i];
+		int value = a- b;
+
+		if(value != 0) {
+			return value;
+		}
+
+		i++;
+	}
+	return (int)str1[i] - (int)str2[i];
 }

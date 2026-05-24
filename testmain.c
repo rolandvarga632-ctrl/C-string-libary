@@ -34,6 +34,9 @@ int main(){
 	char tomb2[10] = "ab";
 
 	printf("%d\n",strcmp(tomb,tomb2));
+
+	// test strncmp
+	printf("%d\n", strncmp(tomb,tomb2,1));
 	// free memory
 	free(dest);
 
