@@ -89,5 +89,6 @@ int strncmp(const char *str1, const char *str2, size_t n) {
 
 		i++;
 	}
+	if(i==n) return 0;
 	return (int)str1[i] - (int)str2[i];
 }
