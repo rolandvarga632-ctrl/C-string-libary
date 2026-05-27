@@ -37,9 +37,22 @@ int main(){
 
 	// test strncmp
 	printf("%d\n", strncmp(tomb,tomb2,1));
-	// free memory
+
+	// test memcpy
+	int array3[3] = {10,20,30};
+	int *array4 = malloc(sizeof(array3));
+	memcpy(array4,array3,sizeof(array3));
+	for(int i = 0;i<3;i++) {
+		printf("%d\n",array4[i]);
+	}
+	free(array4);
+	
 	free(dest);
 
+	//char szoveg[5] ="ABCD";
+
+	//memmove(szoveg+1,szoveg,2);
+	//printf("%s\n",szoveg);
 
 	return 0;
 }
