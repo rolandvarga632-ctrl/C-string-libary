@@ -104,3 +104,59 @@ void* memcpy(void *dest, const void *src, size_t n) {
 	return dest;
 }
 
+void* memmove(void *dest, const void *src, size_t n)
+{
+	if (n == 0) return dest;
+
+	unsigned char *d = (unsigned char*)dest;
+	const unsigned char *s = (const unsigned char*)src;
+
+	if (d > s)
+	{
+		for (size_t i = n; i > 0; i--)
+		{
+			d[i-1] = s[i-1];
+		}
+
+		return dest;
+	}
+
+	if (d == s) return dest;
+
+	for (size_t i = 0; i < n; i++)
+	{
+		d[i] = s[i];
+	}
+
+	return dest;
+}
+
+void* memset(void *from, int value, size_t n)
+{
+
+	if (n == 0) return from;
+
+	unsigned char *f = (unsigned char*)from;
+	unsigned char v = (unsigned char)value;
+
+	for (size_t i = 0; i < n; i++)
+	{
+		f[i] = v;
+	}
+
+	return from;
+}
+
+char* strchr(const char *str, int c)
+{
+
+	while (*str != '\0')
+	{
+		if (*str == (char)c) return (char*)str;
+		str++;
+	}
+
+	if ((char)c == '\0') return (char*)str;
+
+	return NULL;
+}
