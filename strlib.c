@@ -160,3 +160,34 @@ char* strchr(const char *str, int c)
 
 	return NULL;
 }
+
+char* strstr(const char* str, const char* substr)
+{
+	if (*substr == '\0') return (char*)str;
+	char* temp_str;
+	char* temp_sbs;
+	
+	while (*str)
+	{
+		temp_sbs = (char*)substr;
+		temp_str = (char*)str;
+
+		if (*temp_str == *temp_sbs)
+		{
+			while (*temp_sbs != '\0')
+			{
+				if (*temp_str != *temp_sbs) break;
+				temp_str++;
+				temp_sbs++;
+			}
+
+		
+			if (*temp_sbs == '\0') return (char*)str;
+		}
+		str++;
+	}
+
+	return NULL;
+
+
+}
